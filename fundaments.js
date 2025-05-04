@@ -1,27 +1,17 @@
-function subtracao(numA, numB) {
-    return numA - numB;
-}
-
-let vitorias = 90;
-let derrotas = 9;
-
-let player = ["Leonardo", subtracao(vitorias, derrotas)];
-
-let level = [];
-
-let saldo = player[1];
-
-if (saldo <= 10) {
-    level.push("Ferro");
-} else if (saldo >= 11 && saldo <= 20) {
-    level.push("Bronze");
-} else if (saldo >= 21 && saldo <= 50) {
-    level.push("Prata");
-} else if (saldo >= 51 && saldo <= 70) {
-    level.push("Ouro");
-} else if (saldo >= 71 && saldo <= 90) {
-    level.push("Diamante");
-}
-
-console.log("O Jogador " + player[0] + " tem " + vitorias + " vitórias e " + derrotas + " derrotas");
-console.log(player[0] + " está no nível " + level[0]);
+function calcularNivel(vitorias, derrotas) {
+    let saldoVitorias = vitorias - derrotas;
+    let nivel = "";
+  
+    if (vitorias < 10) nivel = "Ferro";
+    else if (vitorias <= 20) nivel = "Bronze";
+    else if (vitorias <= 50) nivel = "Prata";
+    else if (vitorias <= 80) nivel = "Ouro";
+    else if (vitorias <= 90) nivel = "Diamante";
+    else if (vitorias <= 100) nivel = "Lendário";
+    else nivel = "Imortal";
+  
+    return `O Jogador tem de saldo de ${saldoVitorias} vitórias e está no nível de ${nivel}`;
+  }
+  
+  console.log(calcularNivel(90, 9));
+  
